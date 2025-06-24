@@ -1,23 +1,22 @@
-from typing import List, Optional, Dict
+from typing import List, Optional, Dict, Any
 from pydantic import BaseModel, Field
 from datetime import datetime
 from bson import ObjectId
 
-# Support for ObjectId serialization
 class PyObjectId(ObjectId):
+    @classmethod
+    def __get_pydantic_json_schema__(cls, schema, handler):
+        return {"type": "string"}
+
     @classmethod
     def __get_validators__(cls):
         yield cls.validate
-    
+
     @classmethod
     def validate(cls, v):
         if not ObjectId.is_valid(v):
             raise ValueError("Invalid ObjectId")
         return ObjectId(v)
-    
-    @classmethod
-    def __modify_schema__(cls, field_schema):
-        field_schema.update(type="string")
 
 # Base model (used for creation)
 class RecipeBase(BaseModel):
@@ -36,8 +35,8 @@ class Recipe(RecipeBase):
 
     class Config:
         json_encoders = {ObjectId: str}
-        allow_population_by_field_name = True
-        schema_extra = {
+        validate_by_name = True
+        json_schema_extra = {
             "example": {
                 "title": "Spicy Tomato Pasta",
                 "ingredients": ["pasta", "tomato", "garlic"],

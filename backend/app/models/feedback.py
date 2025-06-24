@@ -5,16 +5,18 @@ from bson import ObjectId
 
 class PyObjectId(ObjectId):
     @classmethod
+    def __get_pydantic_json_schema__(cls, schema, handler):
+        return {"type": "string"}
+
+    @classmethod
     def __get_validators__(cls):
         yield cls.validate
+
     @classmethod
     def validate(cls, v):
         if not ObjectId.is_valid(v):
             raise ValueError("Invalid ObjectId")
         return ObjectId(v)
-    @classmethod
-    def __get_pydantic_json_schema__(cls, _schema_generator: Any, _field_schema: dict[str, Any]) -> None:
-        _field_schema.update(type="string")
 
 class Feedback(BaseModel):
     id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
@@ -26,4 +28,4 @@ class Feedback(BaseModel):
 
     class Config:
         json_encoders = {ObjectId: str}
-        allow_population_by_field_name = True
+        validate_by_name = True
