@@ -1,7 +1,7 @@
 <div align = "center">
 
 
-<h1 align="center"> <font size="5"> <b> 🗺️ WonderWise </b></h1>
+<h1 align="center"> <font size="5"> <b> 🍳 CookGenie </b></h1>
 
 ![image](https://github.com/user-attachments/assets/710c6ceb-9ed7-4900-84f5-07adfea43cfd)
 
