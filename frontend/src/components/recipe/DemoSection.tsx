@@ -19,7 +19,7 @@ const sampleRecipes = [
   {
     id: 2,
     title: "Creamy Mushroom Pasta",
-    image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop",
+    image: "https://pinabresciani.com/wp-content/uploads/2022/02/DSC05249.jpg",
     time: "20 min",
     servings: 2,
     difficulty: "Easy",
@@ -51,22 +51,22 @@ export const DemoSection = () => {
             <Play className="w-3 h-3 mr-1" />
             See It In Action
           </Badge>
-          <h2 className="text-xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-orange-800 bg-clip-text text-transparent">
+          <h2 className="text-xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-orange-800 bg-clip-text text-transparent">
             AI-Generated Recipe Magic
           </h2>
           <p className="text-l text-gray-600 max-w-3xl mx-auto">
-            Watch how our AI transforms simple ingredients into amazing recipes with smart suggestions and cooking guidance.
+            Watch how our AI transforms simple ingredients into amazing recipes with smart suggestions & cooking guidance.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Recipe Cards */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 ">
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
               {sampleRecipes.map((recipe) => (
                 <Card 
                   key={recipe.id}
-                  className={`cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+                  className={`cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1  ${
                     selectedRecipe.id === recipe.id ? 'ring-2 ring-orange-400 shadow-lg' : ''
                   }`}
                   onClick={() => setSelectedRecipe(recipe)}

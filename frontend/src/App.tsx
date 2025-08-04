@@ -1,20 +1,16 @@
-import { DemoSection } from "./components/recipe/DemoSection";
-import { HeroSection } from "./components/layout/HeroSection";
-import PizzaNav from "./components/layout/PizzaNav";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
+import Home from './pages/Home';
+// import Recipies from './pages/Recipies';
+import Pantry from './pages/Pantry';
 
 const App = () => {
   return (
-    <>
-      {/* <h1 className="text-3xl font-bold text-center text-green-700">
-        🍳 CookGenie
-      </h1>
-      <p className="text-center text-gray-600 mt-2">
-        Smart recipe suggestions from your pantry.
-      </p> */}
-      {/* <PizzaNav /> */}
-      <HeroSection />
-      <DemoSection />
-    </>
+     <Routes>
+      <Route path='/' element={<Home/>}/>
+      {/* <Route path='/recipes' element={<Recipies/>}/> */}
+      <Route path='/pantry' element={<Pantry/>}/>
+     </Routes>
   );
 };
 export default App;

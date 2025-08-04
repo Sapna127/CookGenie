@@ -3,6 +3,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Badge } from "../ui/badge";
 import { Sparkles, ArrowDown } from "lucide-react";
+import GenerateButton from "./GenerateButton";
 
 export const HeroSection = () => {
   const [ingredients, setIngredients] = useState("");
@@ -21,10 +22,10 @@ export const HeroSection = () => {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <Badge className="mb-4 bg-orange-100 text-orange-800 hover:bg-orange-200">
+          {/* <Badge className="mb-4 bg-orange-100 text-orange-800 hover:bg-orange-200">
             <Sparkles className="w-3 h-3 mr-1" />
             AI-Powered Cooking Assistant
-          </Badge>
+          </Badge> */}
 
           <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-orange-800 to-amber-700 bg-clip-text text-transparent leading-tight">
             🍳 CookGenie
@@ -64,6 +65,7 @@ export const HeroSection = () => {
                 )}
                 Generate Recipe
               </Button>
+            
             </div>
 
             <div className="mt-4 flex flex-wrap gap-2">
