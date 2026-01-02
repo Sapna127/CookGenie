@@ -1,12 +1,11 @@
-import { useState } from 'react';
-import { DndContext, type DragEndEvent } from '@dnd-kit/core';
-import PantryCategories from '../components/pantry/PantryCategories';
-import PantryZone from '../components/pantry/PantryZone';
-import RecipeCarousel from '../components/recipe/RecipeCarousel';
-import InspirationDice from '../components//InspirationDice';
-import { Button } from '../components/ui/button';
-import { Moon, Sun } from 'lucide-react';
-
+import { useState } from "react";
+import { DndContext, type DragEndEvent } from "@dnd-kit/core";
+import PantryCategories from "../components/pantry/PantryCategories";
+import PantryZone from "../components/pantry/PantryZone";
+import RecipeCarousel from "../components/recipe/RecipeCarousel";
+import InspirationDice from "../components//InspirationDice";
+import { Button } from "../components/ui/button";
+import { Moon, Sun } from "lucide-react";
 
 interface PantryItem {
   id: string;
@@ -17,66 +16,74 @@ interface PantryItem {
 
 const SAMPLE_RECIPES = [
   {
-    id: 'pasta-marinara',
-    title: 'Fresh Tomato Basil Pasta',
-    description: 'A classic Italian dish with fresh tomatoes, basil, and garlic',
-    image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop',
+    id: "pasta-marinara",
+    title: "Fresh Tomato Basil Pasta",
+    description:
+      "A classic Italian dish with fresh tomatoes, basil, and garlic",
+    image:
+      "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop",
     cookTime: 20,
     servings: 4,
-    difficulty: 'Easy' as const,
-    tags: ['Italian', 'Vegetarian', 'Quick'],
-    ingredients: ['pasta', 'tomato', 'basil', 'garlic'],
+    difficulty: "Easy" as const,
+    tags: ["Italian", "Vegetarian", "Quick"],
+    ingredients: ["pasta", "tomato", "basil", "garlic"],
     rating: 4.8,
   },
   {
-    id: 'grilled-salmon',
-    title: 'Herb-Crusted Salmon',
-    description: 'Perfectly grilled salmon with fresh herbs and roasted vegetables',
-    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop",
+    id: "grilled-salmon",
+    title: "Herb-Crusted Salmon",
+    description:
+      "Perfectly grilled salmon with fresh herbs and roasted vegetables",
+    image:
+      "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop",
     cookTime: 25,
     servings: 2,
-    difficulty: 'Medium' as const,
-    tags: ['Seafood', 'Healthy', 'Low Carb'],
-    ingredients: ['salmon', 'herbs', 'vegetables'],
+    difficulty: "Medium" as const,
+    tags: ["Seafood", "Healthy", "Low Carb"],
+    ingredients: ["salmon", "herbs", "vegetables"],
     rating: 4.9,
   },
   {
-    id: 'veggie-stirfry',
-    title: 'Rainbow Vegetable Stir Fry',
-    description: 'Colorful mix of fresh vegetables in a savory stir fry sauce',
-    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop",
+    id: "veggie-stirfry",
+    title: "Rainbow Vegetable Stir Fry",
+    description: "Colorful mix of fresh vegetables in a savory stir fry sauce",
+    image:
+      "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop",
     cookTime: 15,
     servings: 3,
-    difficulty: 'Easy' as const,
-    tags: ['Vegetarian', 'Quick', 'Healthy'],
-    ingredients: ['bell-pepper', 'carrot', 'onion', 'garlic'],
+    difficulty: "Easy" as const,
+    tags: ["Vegetarian", "Quick", "Healthy"],
+    ingredients: ["bell-pepper", "carrot", "onion", "garlic"],
     rating: 4.6,
   },
 ];
 
 const RANDOM_RECIPES = [
   {
-    id: 'chicken-curry',
-    title: 'Coconut Chicken Curry',
-    description: 'Creamy coconut curry with tender chicken and aromatic spices',
-    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop", 
+    id: "chicken-curry",
+    title: "Coconut Chicken Curry",
+    description: "Creamy coconut curry with tender chicken and aromatic spices",
+    image:
+      "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop",
     cookTime: 35,
     servings: 4,
-    difficulty: 'Medium' as const,
-    tags: ['Indian', 'Spicy', 'Comfort Food'],
-    ingredients: ['chicken', 'coconut', 'spices'],
+    difficulty: "Medium" as const,
+    tags: ["Indian", "Spicy", "Comfort Food"],
+    ingredients: ["chicken", "coconut", "spices"],
     rating: 4.7,
   },
   {
-    id: 'beef-tacos',
-    title: 'Street-Style Beef Tacos',
-    description: 'Authentic Mexican tacos with seasoned beef and fresh toppings',
-    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop", // Using placeholder
+    id: "beef-tacos",
+    title: "Street-Style Beef Tacos",
+    description:
+      "Authentic Mexican tacos with seasoned beef and fresh toppings",
+    image:
+      "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop", // Using placeholder
     cookTime: 30,
     servings: 6,
-    difficulty: 'Easy' as const,
-    tags: ['Mexican', 'Street Food', 'Crowd Pleaser'],
-    ingredients: ['beef', 'tortillas', 'onion', 'spices'],
+    difficulty: "Easy" as const,
+    tags: ["Mexican", "Street Food", "Crowd Pleaser"],
+    ingredients: ["beef", "tortillas", "onion", "spices"],
     rating: 4.5,
   },
 ];
@@ -88,22 +95,24 @@ const Pantry = () => {
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle('dark');
+    document.documentElement.classList.toggle("dark");
   };
 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
-    
-    if (over && over.id === 'pantry-zone' && active.data.current) {
+
+    if (over && over.id === "pantry-zone" && active.data.current) {
       const ingredient = active.data.current;
-      
+
       // Check if ingredient already exists
-      const existingItem = pantryItems.find(item => item.id === ingredient.id);
-      
+      const existingItem = pantryItems.find(
+        (item) => item.id === ingredient.id
+      );
+
       if (existingItem) {
         // Increase quantity
-        setPantryItems(items =>
-          items.map(item =>
+        setPantryItems((items) =>
+          items.map((item) =>
             item.id === ingredient.id
               ? { ...item, quantity: item.quantity + 1 }
               : item
@@ -111,31 +120,29 @@ const Pantry = () => {
         );
       } else {
         // Add new item
-        setPantryItems(items => [
+        setPantryItems((items) => [
           ...items,
           {
             id: ingredient.id,
             name: ingredient.name,
             emoji: ingredient.emoji,
             quantity: 1,
-          }
+          },
         ]);
       }
     }
   };
 
   const removeFromPantry = (id: string) => {
-    setPantryItems(items => items.filter(item => item.id !== id));
+    setPantryItems((items) => items.filter((item) => item.id !== id));
   };
 
   const updateQuantity = (id: string, quantity: number) => {
     if (quantity === 0) {
       removeFromPantry(id);
     } else {
-      setPantryItems(items =>
-        items.map(item =>
-          item.id === id ? { ...item, quantity } : item
-        )
+      setPantryItems((items) =>
+        items.map((item) => (item.id === id ? { ...item, quantity } : item))
       );
     }
   };
@@ -171,9 +178,9 @@ const Pantry = () => {
 
         {/* Hero Section */}
         <section className="relative h-64 overflow-hidden">
-          <img 
-            src="https://images.unsplash.com/photo-1592178036777-6cb668714b72?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-            alt="Kitchen Hero" 
+          <img
+            src="https://images.unsplash.com/photo-1592178036777-6cb668714b72?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Kitchen Hero"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-background/20 flex items-center">
@@ -183,7 +190,8 @@ const Pantry = () => {
                   What's cooking today?
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  Drag your ingredients below and let AI suggest amazing recipes!
+                  Drag your ingredients below and let AI suggest amazing
+                  recipes!
                 </p>
               </div>
             </div>
@@ -210,24 +218,29 @@ const Pantry = () => {
           <RecipeCarousel
             title="Recommended for You"
             recipes={currentRecipes}
-            onSelectRecipe={(recipe) => console.log('Selected recipe:', recipe)}
+            onSelectRecipe={(recipe) => console.log("Selected recipe:", recipe)}
           />
-          
+
           {pantryItems.length >= 3 && (
             <RecipeCarousel
               title="You Can Make These Now!"
-              recipes={SAMPLE_RECIPES.filter(recipe => 
-                recipe.ingredients.some(ingredient => 
-                  pantryItems.some(item => item.id === ingredient)
+              recipes={SAMPLE_RECIPES.filter((recipe) =>
+                recipe.ingredients.some((ingredient) =>
+                  pantryItems.some((item) => item.id === ingredient)
                 )
               )}
-              onSelectRecipe={(recipe) => console.log('Selected recipe:', recipe)}
+              onSelectRecipe={(recipe) =>
+                console.log("Selected recipe:", recipe)
+              }
             />
           )}
         </div>
 
         {/* Floating Inspiration Dice */}
-        <InspirationDice onRandomRecipe={handleRandomRecipe} />
+        <InspirationDice
+         
+          onRandomRecipe={handleRandomRecipe}
+        />
       </div>
     </DndContext>
   );
