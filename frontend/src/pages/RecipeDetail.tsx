@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Badge } from "../components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
 import {
   Clock,
   Users,
@@ -277,7 +282,8 @@ const RecipeDetail = () => {
                 <Card>
                   <CardContent className="pt-6">
                     <p className="text-sm text-muted-foreground">
-                      Created by: <span className="font-medium">{recipe.created_by}</span>
+                      Created by:{" "}
+                      <span className="font-medium">{recipe.created_by}</span>
                     </p>
                   </CardContent>
                 </Card>
@@ -303,4 +309,3 @@ const RecipeDetail = () => {
 };
 
 export default RecipeDetail;
-

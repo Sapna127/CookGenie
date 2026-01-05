@@ -9,10 +9,15 @@ import type { DisplayRecipe } from "../../types/recipe";
 const sampleRecipes = getRandomMockRecipes(3);
 
 export const DemoSection = () => {
-  const [selectedRecipe, setSelectedRecipe] = useState<DisplayRecipe>(sampleRecipes[0]);
+  const [selectedRecipe, setSelectedRecipe] = useState<DisplayRecipe>(
+    sampleRecipes[0]
+  );
 
   return (
-    <section id="demo" className="py-20 bg-gradient-to-br from-gray-50 to-orange-50">
+    <section
+      id="demo"
+      className="py-20 bg-gradient-to-br from-gray-50 to-orange-50"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <Badge className="mb-4 bg-orange-100 text-orange-800 hover:bg-orange-200">
@@ -23,7 +28,8 @@ export const DemoSection = () => {
             AI-Generated Recipe Magic
           </h2>
           <p className="text-l text-gray-600 max-w-3xl mx-auto">
-            Watch how our AI transforms simple ingredients into amazing recipes with smart suggestions & cooking guidance.
+            Watch how our AI transforms simple ingredients into amazing recipes
+            with smart suggestions & cooking guidance.
           </p>
         </div>
 
@@ -32,31 +38,35 @@ export const DemoSection = () => {
           <div className="lg:col-span-2 ">
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
               {sampleRecipes.map((recipe) => (
-                <Card 
+                <Card
                   key={recipe.id}
                   className={`cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1  ${
-                    selectedRecipe.id === recipe.id ? 'ring-2 ring-orange-400 shadow-lg' : ''
+                    selectedRecipe.id === recipe.id
+                      ? "ring-2 ring-orange-400 shadow-lg"
+                      : ""
                   }`}
                   onClick={() => setSelectedRecipe(recipe)}
                 >
                   <div className="relative">
-                    <img 
-                      src={recipe.image} 
+                    <img
+                      src={recipe.image}
                       alt={recipe.title}
                       className="w-full h-48 object-cover rounded-t-lg"
                     />
                     <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 flex items-center">
                       <Star className="w-3 h-3 text-yellow-500 fill-current mr-1" />
-                      <span className="text-xs font-medium">{recipe.rating}</span>
+                      <span className="text-xs font-medium">
+                        {recipe.rating}
+                      </span>
                     </div>
                   </div>
-                  
+
                   <CardHeader className="pb-2">
                     <CardTitle className="text-lg font-bold text-gray-900">
                       {recipe.title}
                     </CardTitle>
                   </CardHeader>
-                  
+
                   <CardContent className="pt-0">
                     <div className="flex items-center justify-between text-sm text-gray-600 mb-3">
                       <div className="flex items-center">
@@ -71,10 +81,14 @@ export const DemoSection = () => {
                         {recipe.difficulty}
                       </Badge>
                     </div>
-                    
+
                     <div className="flex flex-wrap gap-1 mb-3">
                       {recipe.tags.map((tag) => (
-                        <Badge key={tag} variant="secondary" className="text-xs">
+                        <Badge
+                          key={tag}
+                          variant="secondary"
+                          className="text-xs"
+                        >
                           {tag}
                         </Badge>
                       ))}
@@ -97,18 +111,25 @@ export const DemoSection = () => {
               <CardContent>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Ingredients Used:</h4>
+                    <h4 className="font-semibold text-gray-900 mb-2">
+                      Ingredients Used:
+                    </h4>
                     <div className="flex flex-wrap gap-2">
                       {selectedRecipe.ingredients.map((ingredient) => (
-                        <Badge key={ingredient} className="bg-orange-100 text-orange-800 hover:bg-orange-200">
+                        <Badge
+                          key={ingredient}
+                          className="bg-orange-100 text-orange-800 hover:bg-orange-200"
+                        >
                           {ingredient}
                         </Badge>
                       ))}
                     </div>
                   </div>
-                  
+
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Smart Features:</h4>
+                    <h4 className="font-semibold text-gray-900 mb-2">
+                      Smart Features:
+                    </h4>
                     <ul className="space-y-2 text-sm text-gray-600">
                       <li className="flex items-center">
                         <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
@@ -128,7 +149,7 @@ export const DemoSection = () => {
                       </li>
                     </ul>
                   </div>
-                  
+
                   <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white">
                     View Full Recipe
                   </Button>

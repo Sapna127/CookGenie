@@ -14,7 +14,9 @@ function generateImageUrl(title: string): string {
  */
 function generateDescription(recipe: BackendRecipe): string {
   const tagList = recipe.tags?.join(", ") || "";
-  return `A delicious ${recipe.title.toLowerCase()}${tagList ? ` with ${tagList} flavors` : ""}. Perfect for any occasion.`;
+  return `A delicious ${recipe.title.toLowerCase()}${
+    tagList ? ` with ${tagList} flavors` : ""
+  }. Perfect for any occasion.`;
 }
 
 /**
@@ -68,16 +70,14 @@ function calculateRating(recipe: BackendRecipe): number {
 
   // Boost rating for popular tags
   const popularTags = ["Quick", "Healthy", "Vegetarian", "Comfort Food"];
-  const hasPopularTag = recipe.tags?.some((tag) =>
-    popularTags.includes(tag)
-  );
+  const hasPopularTag = recipe.tags?.some((tag) => popularTags.includes(tag));
   if (hasPopularTag) rating += 0.2;
 
   // Slight boost for pantry mode recipes
   if (recipe.pantry_mode) rating += 0.1;
 
   // Randomize slightly for variety (between 4.3 and 4.9)
-  const randomFactor = (Math.random() * 0.6 - 0.3);
+  const randomFactor = Math.random() * 0.6 - 0.3;
   rating += randomFactor;
 
   return Math.round(rating * 10) / 10; // Round to 1 decimal place
@@ -117,4 +117,3 @@ export function transformRecipe(recipe: BackendRecipe): DisplayRecipe {
 export function transformRecipes(recipes: BackendRecipe[]): DisplayRecipe[] {
   return recipes.map(transformRecipe);
 }
-

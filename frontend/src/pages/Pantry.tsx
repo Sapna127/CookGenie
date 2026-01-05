@@ -7,7 +7,11 @@ import RecipeCarousel from "../components/recipe/RecipeCarousel";
 import InspirationDice from "../components//InspirationDice";
 import { Button } from "../components/ui/button";
 import { Moon, Sun } from "lucide-react";
-import { getMockRecipes, getMockRecipesByPantryMode, getRandomMockRecipes } from "../data/mockDataService";
+import {
+  getMockRecipes,
+  getMockRecipesByPantryMode,
+  getRandomMockRecipes,
+} from "../data/mockDataService";
 import type { DisplayRecipe } from "../types/recipe";
 
 interface PantryItem {
@@ -22,7 +26,8 @@ const Pantry = () => {
   const [pantryItems, setPantryItems] = useState<PantryItem[]>([]);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const pantryRecipes = getMockRecipesByPantryMode(true);
-  const [currentRecipes, setCurrentRecipes] = useState<DisplayRecipe[]>(pantryRecipes);
+  const [currentRecipes, setCurrentRecipes] =
+    useState<DisplayRecipe[]>(pantryRecipes);
 
   const handleSelectRecipe = (recipe: DisplayRecipe) => {
     navigate(`/recipes/${recipe.id}`);
@@ -160,7 +165,10 @@ const Pantry = () => {
               title="You Can Make These Now!"
               recipes={getMockRecipes().filter((recipe) =>
                 recipe.ingredients.some((ingredient) =>
-                  pantryItems.some((item) => item.name.toLowerCase() === ingredient.toLowerCase())
+                  pantryItems.some(
+                    (item) =>
+                      item.name.toLowerCase() === ingredient.toLowerCase()
+                  )
                 )
               )}
               onSelectRecipe={handleSelectRecipe}
@@ -169,10 +177,7 @@ const Pantry = () => {
         </div>
 
         {/* Floating Inspiration Dice */}
-        <InspirationDice
-         
-          onRandomRecipe={handleRandomRecipe}
-        />
+        <InspirationDice onRandomRecipe={handleRandomRecipe} />
       </div>
     </DndContext>
   );

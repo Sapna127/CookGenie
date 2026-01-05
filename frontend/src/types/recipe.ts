@@ -46,4 +46,3 @@ export type Difficulty = "Easy" | "Medium" | "Hard";
  * Helper type for recipe creation (without id)
  */
 export type RecipeInput = Omit<BackendRecipe, "id" | "created_at">;
-

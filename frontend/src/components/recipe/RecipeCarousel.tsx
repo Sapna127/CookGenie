@@ -1,8 +1,8 @@
-import { useRef } from 'react';
-import { Button } from '../ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import RecipeCard from './RecipeCard';
-import type { DisplayRecipe } from '../../types/recipe';
+import { useRef } from "react";
+import { Button } from "../ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import RecipeCard from "./RecipeCard";
+import type { DisplayRecipe } from "../../types/recipe";
 
 interface RecipeCarouselProps {
   title: string;
@@ -10,15 +10,19 @@ interface RecipeCarouselProps {
   onSelectRecipe?: (recipe: DisplayRecipe) => void;
 }
 
-export default function RecipeCarousel({ title, recipes, onSelectRecipe }: RecipeCarouselProps) {
+export default function RecipeCarousel({
+  title,
+  recipes,
+  onSelectRecipe,
+}: RecipeCarouselProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (direction: 'left' | 'right') => {
+  const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
       const scrollAmount = 320; // Card width + gap
       scrollRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth',
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
       });
     }
   };
@@ -31,7 +35,7 @@ export default function RecipeCarousel({ title, recipes, onSelectRecipe }: Recip
           <Button
             variant="outline"
             size="sm"
-            onClick={() => scroll('left')}
+            onClick={() => scroll("left")}
             className="w-8 h-8 p-0"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -39,18 +43,18 @@ export default function RecipeCarousel({ title, recipes, onSelectRecipe }: Recip
           <Button
             variant="outline"
             size="sm"
-            onClick={() => scroll('right')}
+            onClick={() => scroll("right")}
             className="w-8 h-8 p-0"
           >
             <ChevronRight className="w-4 h-4" />
           </Button>
         </div>
       </div>
-      
+
       <div
         ref={scrollRef}
         className="flex gap-4 overflow-x-auto scrollbar-hide pb-2"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {recipes.map((recipe) => (
           <RecipeCard

@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 // Note: This interface matches the backend API response format
 // For display purposes, use DisplayRecipe from types/recipe.ts
@@ -29,16 +29,16 @@ export const recipeAPI = {
   // TODO: Replace mock data service calls with this API call when ready
   async generateRecipe(ingredients: string[]): Promise<Recipe> {
     const response = await fetch(`${API_BASE_URL}/api/v1/generate-gemini`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ ingredients }), // Fixed: Send as object with ingredients array
     });
 
     if (!response.ok) {
       const error = await response.json();
-      throw new Error(error.detail || 'Failed to generate recipe');
+      throw new Error(error.detail || "Failed to generate recipe");
     }
 
     return response.json();
@@ -48,9 +48,9 @@ export const recipeAPI = {
   // TODO: Replace getMockRecipes() calls with this API call when ready
   async getAllRecipes(limit: number = 10): Promise<Recipe[]> {
     const response = await fetch(`${API_BASE_URL}/recipes?limit=${limit}`);
-    
+
     if (!response.ok) {
-      throw new Error('Failed to fetch recipes');
+      throw new Error("Failed to fetch recipes");
     }
 
     return response.json();
@@ -60,27 +60,27 @@ export const recipeAPI = {
   // TODO: Replace getMockRecipeById() calls with this API call when ready
   async getRecipeById(id: string): Promise<Recipe> {
     const response = await fetch(`${API_BASE_URL}/recipes/${id}`);
-    
+
     if (!response.ok) {
-      throw new Error('Failed to fetch recipe');
+      throw new Error("Failed to fetch recipe");
     }
 
     return response.json();
   },
 
   // Create recipe
-  async createRecipe(recipe: Omit<Recipe, 'id'>): Promise<Recipe> {
+  async createRecipe(recipe: Omit<Recipe, "id">): Promise<Recipe> {
     const response = await fetch(`${API_BASE_URL}/recipes`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(recipe),
     });
 
     if (!response.ok) {
       const error = await response.json();
-      throw new Error(error.detail || 'Failed to create recipe');
+      throw new Error(error.detail || "Failed to create recipe");
     }
 
     return response.json();
@@ -90,18 +90,18 @@ export const recipeAPI = {
 // User API functions
 export const userAPI = {
   // Create user
-  async createUser(user: Omit<User, 'id' | 'created_at'>): Promise<User> {
+  async createUser(user: Omit<User, "id" | "created_at">): Promise<User> {
     const response = await fetch(`${API_BASE_URL}/users`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
     });
 
     if (!response.ok) {
       const error = await response.json();
-      throw new Error(error.detail || 'Failed to create user');
+      throw new Error(error.detail || "Failed to create user");
     }
 
     return response.json();
@@ -110,9 +110,9 @@ export const userAPI = {
   // Get user by ID
   async getUserById(id: string): Promise<User> {
     const response = await fetch(`${API_BASE_URL}/users/${id}`);
-    
+
     if (!response.ok) {
-      throw new Error('Failed to fetch user');
+      throw new Error("Failed to fetch user");
     }
 
     return response.json();

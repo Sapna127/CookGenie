@@ -35,7 +35,9 @@ export function getMockRecipesBackend(): BackendRecipe[] {
 /**
  * Get a single mock recipe by ID as BackendRecipe format (for API compatibility)
  */
-export function getMockRecipeByIdBackend(id: string): BackendRecipe | undefined {
+export function getMockRecipeByIdBackend(
+  id: string
+): BackendRecipe | undefined {
   const backendRecipes = mockData.recipes as BackendRecipe[];
   return backendRecipes.find((r) => r.id === id);
 }
@@ -55,7 +57,7 @@ export function getRandomMockRecipes(count: number): DisplayRecipe[] {
 export function searchMockRecipes(query: string): DisplayRecipe[] {
   const allRecipes = getMockRecipes();
   const lowerQuery = query.toLowerCase();
-  
+
   return allRecipes.filter(
     (recipe) =>
       recipe.title.toLowerCase().includes(lowerQuery) ||
@@ -67,8 +69,9 @@ export function searchMockRecipes(query: string): DisplayRecipe[] {
 /**
  * Get recipes filtered by pantry mode
  */
-export function getMockRecipesByPantryMode(pantryMode: boolean): DisplayRecipe[] {
+export function getMockRecipesByPantryMode(
+  pantryMode: boolean
+): DisplayRecipe[] {
   const allRecipes = getMockRecipes();
   return allRecipes.filter((recipe) => recipe.pantry_mode === pantryMode);
 }
-

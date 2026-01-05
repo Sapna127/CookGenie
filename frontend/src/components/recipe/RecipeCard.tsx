@@ -1,8 +1,8 @@
-import { Card, CardContent } from '../ui/card';
-import { Badge } from '../ui/badge';
-import { Button } from '../ui/button';
-import { Clock, Users, Star, ChefHat } from 'lucide-react';
-import type { DisplayRecipe } from '../../types/recipe';
+import { Card, CardContent } from "../ui/card";
+import { Badge } from "../ui/badge";
+import { Button } from "../ui/button";
+import { Clock, Users, Star, ChefHat } from "lucide-react";
+import type { DisplayRecipe } from "../../types/recipe";
 
 interface RecipeCardProps {
   recipe: DisplayRecipe;
@@ -10,9 +10,10 @@ interface RecipeCardProps {
 }
 
 const DIFFICULTY_COLORS = {
-  Easy: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-  Medium: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200',
-  Hard: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200',
+  Easy: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
+  Medium:
+    "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
+  Hard: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
 };
 
 export default function RecipeCard({ recipe, onSelect }: RecipeCardProps) {
@@ -34,11 +35,15 @@ export default function RecipeCard({ recipe, onSelect }: RecipeCardProps) {
           <span className="text-xs font-medium">{recipe.rating}</span>
         </div>
       </div>
-      
+
       <CardContent className="p-4">
-        <h3 className="font-semibold text-lg mb-2 line-clamp-2">{recipe.title}</h3>
-        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{recipe.description}</p>
-        
+        <h3 className="font-semibold text-lg mb-2 line-clamp-2">
+          {recipe.title}
+        </h3>
+        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+          {recipe.description}
+        </p>
+
         <div className="flex items-center justify-between mb-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-1">
             <Clock className="w-4 h-4" />
@@ -49,7 +54,7 @@ export default function RecipeCard({ recipe, onSelect }: RecipeCardProps) {
             <span>{recipe.servings} servings</span>
           </div>
         </div>
-        
+
         <div className="flex flex-wrap gap-1 mb-4">
           {recipe.tags.map((tag) => (
             <Badge key={tag} variant="secondary" className="text-xs">
@@ -57,11 +62,8 @@ export default function RecipeCard({ recipe, onSelect }: RecipeCardProps) {
             </Badge>
           ))}
         </div>
-        
-        <Button 
-          className="w-full" 
-          onClick={() => onSelect?.(recipe)}
-        >
+
+        <Button className="w-full" onClick={() => onSelect?.(recipe)}>
           <ChefHat className="w-4 h-4 mr-2" />
           Start Cooking
         </Button>
