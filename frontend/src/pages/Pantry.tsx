@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { DndContext, type DragEndEvent } from "@dnd-kit/core";
 import PantryCategories from "../components/pantry/PantryCategories";
 import PantryZone from "../components/pantry/PantryZone";
@@ -6,6 +7,8 @@ import RecipeCarousel from "../components/recipe/RecipeCarousel";
 import InspirationDice from "../components//InspirationDice";
 import { Button } from "../components/ui/button";
 import { Moon, Sun } from "lucide-react";
+import { getMockRecipes, getMockRecipesByPantryMode, getRandomMockRecipes } from "../data/mockDataService";
+import type { DisplayRecipe } from "../types/recipe";
 
 interface PantryItem {
   id: string;
@@ -14,84 +17,16 @@ interface PantryItem {
   quantity: number;
 }
 
-const SAMPLE_RECIPES = [
-  {
-    id: "pasta-marinara",
-    title: "Fresh Tomato Basil Pasta",
-    description:
-      "A classic Italian dish with fresh tomatoes, basil, and garlic",
-    image:
-      "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop",
-    cookTime: 20,
-    servings: 4,
-    difficulty: "Easy" as const,
-    tags: ["Italian", "Vegetarian", "Quick"],
-    ingredients: ["pasta", "tomato", "basil", "garlic"],
-    rating: 4.8,
-  },
-  {
-    id: "grilled-salmon",
-    title: "Herb-Crusted Salmon",
-    description:
-      "Perfectly grilled salmon with fresh herbs and roasted vegetables",
-    image:
-      "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop",
-    cookTime: 25,
-    servings: 2,
-    difficulty: "Medium" as const,
-    tags: ["Seafood", "Healthy", "Low Carb"],
-    ingredients: ["salmon", "herbs", "vegetables"],
-    rating: 4.9,
-  },
-  {
-    id: "veggie-stirfry",
-    title: "Rainbow Vegetable Stir Fry",
-    description: "Colorful mix of fresh vegetables in a savory stir fry sauce",
-    image:
-      "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop",
-    cookTime: 15,
-    servings: 3,
-    difficulty: "Easy" as const,
-    tags: ["Vegetarian", "Quick", "Healthy"],
-    ingredients: ["bell-pepper", "carrot", "onion", "garlic"],
-    rating: 4.6,
-  },
-];
-
-const RANDOM_RECIPES = [
-  {
-    id: "chicken-curry",
-    title: "Coconut Chicken Curry",
-    description: "Creamy coconut curry with tender chicken and aromatic spices",
-    image:
-      "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop",
-    cookTime: 35,
-    servings: 4,
-    difficulty: "Medium" as const,
-    tags: ["Indian", "Spicy", "Comfort Food"],
-    ingredients: ["chicken", "coconut", "spices"],
-    rating: 4.7,
-  },
-  {
-    id: "beef-tacos",
-    title: "Street-Style Beef Tacos",
-    description:
-      "Authentic Mexican tacos with seasoned beef and fresh toppings",
-    image:
-      "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop", // Using placeholder
-    cookTime: 30,
-    servings: 6,
-    difficulty: "Easy" as const,
-    tags: ["Mexican", "Street Food", "Crowd Pleaser"],
-    ingredients: ["beef", "tortillas", "onion", "spices"],
-    rating: 4.5,
-  },
-];
-
 const Pantry = () => {
+  const navigate = useNavigate();
   const [pantryItems, setPantryItems] = useState<PantryItem[]>([]);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [currentRecipes, setCurrentRecipes] = useState(SAMPLE_RECIPES);
+  const pantryRecipes = getMockRecipesByPantryMode(true);
+  const [currentRecipes, setCurrentRecipes] = useState<DisplayRecipe[]>(pantryRecipes);
+
+  const handleSelectRecipe = (recipe: DisplayRecipe) => {
+    navigate(`/recipes/${recipe.id}`);
+  };
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -148,9 +83,8 @@ const Pantry = () => {
   };
 
   const handleRandomRecipe = () => {
-    const randomIndex = Math.floor(Math.random() * RANDOM_RECIPES.length);
-    const randomRecipe = RANDOM_RECIPES[randomIndex];
-    setCurrentRecipes([randomRecipe, ...SAMPLE_RECIPES]);
+    const randomRecipes = getRandomMockRecipes(2);
+    setCurrentRecipes([...randomRecipes, ...pantryRecipes]);
   };
 
   return (
@@ -218,20 +152,18 @@ const Pantry = () => {
           <RecipeCarousel
             title="Recommended for You"
             recipes={currentRecipes}
-            onSelectRecipe={(recipe) => console.log("Selected recipe:", recipe)}
+            onSelectRecipe={handleSelectRecipe}
           />
 
           {pantryItems.length >= 3 && (
             <RecipeCarousel
               title="You Can Make These Now!"
-              recipes={SAMPLE_RECIPES.filter((recipe) =>
+              recipes={getMockRecipes().filter((recipe) =>
                 recipe.ingredients.some((ingredient) =>
-                  pantryItems.some((item) => item.id === ingredient)
+                  pantryItems.some((item) => item.name.toLowerCase() === ingredient.toLowerCase())
                 )
               )}
-              onSelectRecipe={(recipe) =>
-                console.log("Selected recipe:", recipe)
-              }
+              onSelectRecipe={handleSelectRecipe}
             />
           )}
         </div>

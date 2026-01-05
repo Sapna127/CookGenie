@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import {
   Card,
@@ -9,100 +9,12 @@ import {
 } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import { Clock, Users, ChefHat, Eye } from "lucide-react";
-
-interface Recipe {
-  id: string;
-  title: string;
-  image: string;
-  time: string;
-  servings: number;
-  difficulty: "Easy" | "Medium" | "Hard";
-  tags: string[];
-  rating: number;
-  description: string;
-}
-
-const sampleRecipes: Recipe[] = [
-  {
-    id: "1",
-    title: "Spicy Garlic Shrimp Pasta",
-    image:
-      "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop",
-    time: "25 min",
-    servings: 4,
-    difficulty: "Easy",
-    tags: ["Seafood", "Pasta", "Quick"],
-    rating: 4.8,
-    description:
-      "A delicious and quick pasta dish with perfectly seasoned shrimp",
-  },
-  {
-    id: "2",
-    title: "Mediterranean Chicken Bowl",
-    image:
-      "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
-    time: "35 min",
-    servings: 2,
-    difficulty: "Medium",
-    tags: ["Healthy", "Mediterranean", "Protein"],
-    rating: 4.6,
-    description:
-      "Fresh and healthy bowl with grilled chicken and Mediterranean flavors",
-  },
-  {
-    id: "3",
-    title: "Classic Beef Burger",
-    image:
-      "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
-    time: "20 min",
-    servings: 4,
-    difficulty: "Easy",
-    tags: ["Comfort Food", "Beef", "American"],
-    rating: 4.9,
-    description: "Juicy homemade beef burger with all the classic toppings",
-  },
-  {
-    id: "4",
-    title: "Thai Green Curry",
-    image:
-      "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=400&h=300&fit=crop",
-    time: "40 min",
-    servings: 4,
-    difficulty: "Medium",
-    tags: ["Thai", "Spicy", "Coconut"],
-    rating: 4.7,
-    description:
-      "Authentic Thai green curry with vegetables and aromatic spices",
-  },
-  {
-    id: "5",
-    title: "Chocolate Lava Cake",
-    image:
-      "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop",
-    time: "30 min",
-    servings: 2,
-    difficulty: "Hard",
-    tags: ["Dessert", "Chocolate", "Baking"],
-    rating: 4.9,
-    description: "Decadent chocolate dessert with a molten center",
-  },
-  {
-    id: "6",
-    title: "Fresh Caesar Salad",
-    image:
-      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop",
-    time: "15 min",
-    servings: 4,
-    difficulty: "Easy",
-    tags: ["Salad", "Healthy", "Quick"],
-    rating: 4.4,
-    description:
-      "Crisp romaine lettuce with homemade caesar dressing and croutons",
-  },
-];
+import { getMockRecipes } from "../data/mockDataService";
+import type { DisplayRecipe } from "../types/recipe";
 
 const Recipes = () => {
-  const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
+  const navigate = useNavigate();
+  const recipes = getMockRecipes();
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
@@ -117,11 +29,8 @@ const Recipes = () => {
     }
   };
 
-  const handleViewRecipe = (recipe: Recipe) => {
-    setSelectedRecipe(recipe);
-    // Here you would typically navigate to a detailed recipe page
-    // For now, we'll just log it
-    console.log("Viewing recipe:", recipe);
+  const handleViewRecipe = (recipe: DisplayRecipe) => {
+    navigate(`/recipes/${recipe.id}`);
   };
 
   return (
@@ -149,7 +58,7 @@ const Recipes = () => {
       {/* Recipe Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sampleRecipes.map((recipe) => (
+          {recipes.map((recipe) => (
             <Card
               key={recipe.id}
               className="overflow-hidden hover:shadow-lg transition-shadow duration-300"
@@ -182,7 +91,7 @@ const Recipes = () => {
                 <div className="flex items-center justify-between text-sm text-muted-foreground">
                   <div className="flex items-center space-x-1">
                     <Clock className="w-4 h-4" />
-                    <span>{recipe.time}</span>
+                    <span>{recipe.cookTime} min</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <Users className="w-4 h-4" />

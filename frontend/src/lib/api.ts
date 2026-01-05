@@ -1,5 +1,7 @@
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
+// Note: This interface matches the backend API response format
+// For display purposes, use DisplayRecipe from types/recipe.ts
 export interface Recipe {
   id?: string;
   title: string;
@@ -24,13 +26,14 @@ export interface User {
 // Recipe API functions
 export const recipeAPI = {
   // Generate recipe using AI
+  // TODO: Replace mock data service calls with this API call when ready
   async generateRecipe(ingredients: string[]): Promise<Recipe> {
     const response = await fetch(`${API_BASE_URL}/api/v1/generate-gemini`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(ingredients),
+      body: JSON.stringify({ ingredients }), // Fixed: Send as object with ingredients array
     });
 
     if (!response.ok) {
@@ -42,6 +45,7 @@ export const recipeAPI = {
   },
 
   // Get all recipes
+  // TODO: Replace getMockRecipes() calls with this API call when ready
   async getAllRecipes(limit: number = 10): Promise<Recipe[]> {
     const response = await fetch(`${API_BASE_URL}/recipes?limit=${limit}`);
     
@@ -53,6 +57,7 @@ export const recipeAPI = {
   },
 
   // Get recipe by ID
+  // TODO: Replace getMockRecipeById() calls with this API call when ready
   async getRecipeById(id: string): Promise<Recipe> {
     const response = await fetch(`${API_BASE_URL}/recipes/${id}`);
     

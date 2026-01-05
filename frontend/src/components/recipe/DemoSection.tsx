@@ -3,45 +3,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
 import { Clock, Users, ChefHat, Star, Play } from "lucide-react";
+import { getRandomMockRecipes } from "../../data/mockDataService";
+import type { DisplayRecipe } from "../../types/recipe";
 
-const sampleRecipes = [
-  {
-    id: 1,
-    title: "Mediterranean Chicken Bowl",
-    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
-    time: "25 min",
-    servings: 4,
-    difficulty: "Easy",
-    tags: ["Healthy", "Protein-Rich"],
-    rating: 4.8,
-    ingredients: ["chicken", "quinoa", "tomatoes", "olives", "feta"]
-  },
-  {
-    id: 2,
-    title: "Creamy Mushroom Pasta",
-    image: "https://pinabresciani.com/wp-content/uploads/2022/02/DSC05249.jpg",
-    time: "20 min",
-    servings: 2,
-    difficulty: "Easy",
-    tags: ["Vegetarian", "Comfort Food"],
-    rating: 4.7,
-    ingredients: ["pasta", "mushrooms", "cream", "garlic", "parmesan"]
-  },
-  {
-    id: 3,
-    title: "Asian Stir-Fry Delight",
-    image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&h=300&fit=crop",
-    time: "15 min",
-    servings: 3,
-    difficulty: "Medium",
-    tags: ["Quick", "Asian Fusion"],
-    rating: 4.9,
-    ingredients: ["vegetables", "soy sauce", "ginger", "rice", "sesame oil"]
-  }
-];
+const sampleRecipes = getRandomMockRecipes(3);
 
 export const DemoSection = () => {
-  const [selectedRecipe, setSelectedRecipe] = useState(sampleRecipes[0]);
+  const [selectedRecipe, setSelectedRecipe] = useState<DisplayRecipe>(sampleRecipes[0]);
 
   return (
     <section id="demo" className="py-20 bg-gradient-to-br from-gray-50 to-orange-50">
@@ -93,7 +61,7 @@ export const DemoSection = () => {
                     <div className="flex items-center justify-between text-sm text-gray-600 mb-3">
                       <div className="flex items-center">
                         <Clock className="w-4 h-4 mr-1" />
-                        {recipe.time}
+                        {recipe.cookTime} min
                       </div>
                       <div className="flex items-center">
                         <Users className="w-4 h-4 mr-1" />

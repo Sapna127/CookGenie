@@ -2,23 +2,11 @@ import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { Clock, Users, Star, ChefHat } from 'lucide-react';
-
-interface Recipe {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  cookTime: number;
-  servings: number;
-  difficulty: 'Easy' | 'Medium' | 'Hard';
-  tags: string[];
-  ingredients: string[];
-  rating: number;
-}
+import type { DisplayRecipe } from '../../types/recipe';
 
 interface RecipeCardProps {
-  recipe: Recipe;
-  onSelect?: (recipe: Recipe) => void;
+  recipe: DisplayRecipe;
+  onSelect?: (recipe: DisplayRecipe) => void;
 }
 
 const DIFFICULTY_COLORS = {

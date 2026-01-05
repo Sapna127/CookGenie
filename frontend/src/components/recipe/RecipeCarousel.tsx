@@ -1,25 +1,13 @@
 import { useRef } from 'react';
 import { Button } from '../ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import RecipeCard from './RecipeCard'
-
-interface Recipe {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  cookTime: number;
-  servings: number;
-  difficulty: 'Easy' | 'Medium' | 'Hard';
-  tags: string[];
-  ingredients: string[];
-  rating: number;
-}
+import RecipeCard from './RecipeCard';
+import type { DisplayRecipe } from '../../types/recipe';
 
 interface RecipeCarouselProps {
   title: string;
-  recipes: Recipe[];
-  onSelectRecipe?: (recipe: Recipe) => void;
+  recipes: DisplayRecipe[];
+  onSelectRecipe?: (recipe: DisplayRecipe) => void;
 }
 
 export default function RecipeCarousel({ title, recipes, onSelectRecipe }: RecipeCarouselProps) {

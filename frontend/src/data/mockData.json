@@ -1,0 +1,249 @@
+{
+  "recipes": [
+    {
+      "id": "1",
+      "title": "Spicy Garlic Shrimp Pasta",
+      "ingredients": [
+        "pasta",
+        "shrimp",
+        "garlic",
+        "olive oil",
+        "red pepper flakes",
+        "lemon",
+        "parsley",
+        "salt",
+        "black pepper"
+      ],
+      "instructions": "1. Bring a large pot of salted water to a boil and cook pasta according to package directions until al dente. 2. While pasta cooks, heat olive oil in a large skillet over medium-high heat. 3. Add minced garlic and red pepper flakes, sauté for 30 seconds until fragrant. 4. Add shrimp and cook for 2-3 minutes per side until pink and opaque. 5. Drain pasta, reserving 1/2 cup pasta water. 6. Add pasta to skillet with shrimp, toss together. 7. Add lemon juice, fresh parsley, salt, and black pepper. 8. Toss everything together, adding pasta water if needed for sauce consistency. 9. Serve immediately with extra lemon wedges.",
+      "tags": ["Seafood", "Pasta", "Quick", "Spicy"],
+      "substitutions": {
+        "shrimp": ["chicken", "tofu"],
+        "pasta": ["zucchini noodles", "rice noodles"]
+      },
+      "pantry_mode": false,
+      "created_by": "gemini",
+      "created_at": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": "2",
+      "title": "Mediterranean Chicken Bowl",
+      "ingredients": [
+        "chicken breast",
+        "quinoa",
+        "cherry tomatoes",
+        "cucumber",
+        "red onion",
+        "kalamata olives",
+        "feta cheese",
+        "olive oil",
+        "lemon",
+        "oregano",
+        "salt",
+        "pepper"
+      ],
+      "instructions": "1. Cook quinoa according to package directions and let cool. 2. Season chicken breast with salt, pepper, and oregano. 3. Heat olive oil in a pan and cook chicken for 6-7 minutes per side until cooked through. 4. Let chicken rest, then slice into strips. 5. Prepare vegetables: halve cherry tomatoes, dice cucumber, thinly slice red onion. 6. In a large bowl, combine quinoa, vegetables, olives, and feta cheese. 7. Drizzle with olive oil and lemon juice, season with salt and pepper. 8. Top with sliced chicken and serve.",
+      "tags": ["Healthy", "Mediterranean", "Protein", "Gluten-Free"],
+      "substitutions": {
+        "quinoa": ["rice", "couscous"],
+        "chicken breast": ["chickpeas", "tofu"]
+      },
+      "pantry_mode": false,
+      "created_by": "gemini",
+      "created_at": "2024-01-14T14:20:00Z"
+    },
+    {
+      "id": "3",
+      "title": "Classic Beef Burger",
+      "ingredients": [
+        "ground beef",
+        "burger buns",
+        "lettuce",
+        "tomato",
+        "onion",
+        "pickles",
+        "cheddar cheese",
+        "ketchup",
+        "mustard",
+        "salt",
+        "black pepper",
+        "garlic powder"
+      ],
+      "instructions": "1. Season ground beef with salt, pepper, and garlic powder. 2. Form into 4 equal patties, slightly larger than buns. 3. Heat grill or pan over medium-high heat. 4. Cook burgers for 4-5 minutes per side for medium doneness. 5. Add cheese slice on top during last minute of cooking. 6. Toast burger buns lightly. 7. Assemble burgers: bottom bun, lettuce, tomato, onion, patty with cheese, pickles, condiments, top bun. 8. Serve immediately.",
+      "tags": ["Comfort Food", "Beef", "American", "Quick"],
+      "substitutions": {
+        "ground beef": ["turkey", "plant-based patty"],
+        "cheddar cheese": ["swiss cheese", "vegan cheese"]
+      },
+      "pantry_mode": false,
+      "created_by": "gemini",
+      "created_at": "2024-01-13T18:45:00Z"
+    },
+    {
+      "id": "4",
+      "title": "Thai Green Curry",
+      "ingredients": [
+        "chicken thighs",
+        "green curry paste",
+        "coconut milk",
+        "eggplant",
+        "bell pepper",
+        "basil leaves",
+        "fish sauce",
+        "brown sugar",
+        "lime",
+        "jasmine rice"
+      ],
+      "instructions": "1. Heat a large pan or wok over medium heat. 2. Add green curry paste and cook for 1 minute until fragrant. 3. Add coconut milk and bring to a simmer. 4. Add chicken thighs and cook for 10 minutes. 5. Add eggplant and bell pepper, cook for 5 more minutes. 6. Season with fish sauce and brown sugar to taste. 7. Simmer until vegetables are tender and chicken is cooked through. 8. Stir in fresh basil leaves and lime juice. 9. Serve hot over jasmine rice.",
+      "tags": ["Thai", "Spicy", "Coconut", "Comfort Food"],
+      "substitutions": {
+        "chicken thighs": ["tofu", "shrimp"],
+        "fish sauce": ["soy sauce", "tamari"]
+      },
+      "pantry_mode": false,
+      "created_by": "gemini",
+      "created_at": "2024-01-12T12:15:00Z"
+    },
+    {
+      "id": "5",
+      "title": "Chocolate Lava Cake",
+      "ingredients": [
+        "dark chocolate",
+        "butter",
+        "eggs",
+        "sugar",
+        "flour",
+        "cocoa powder",
+        "vanilla extract",
+        "powdered sugar",
+        "raspberries"
+      ],
+      "instructions": "1. Preheat oven to 425°F (220°C). 2. Melt dark chocolate and butter in a double boiler, let cool slightly. 3. In a bowl, whisk eggs and sugar until pale and fluffy. 4. Fold in melted chocolate mixture. 5. Sift in flour and cocoa powder, fold gently. 6. Add vanilla extract. 7. Grease ramekins and fill 3/4 full with batter. 8. Bake for 12-14 minutes until edges are set but center is still soft. 9. Let rest for 1 minute, then invert onto plates. 10. Dust with powdered sugar and serve with fresh raspberries.",
+      "tags": ["Dessert", "Chocolate", "Baking", "Indulgent"],
+      "substitutions": {
+        "dark chocolate": ["milk chocolate", "white chocolate"],
+        "raspberries": ["strawberries", "vanilla ice cream"]
+      },
+      "pantry_mode": false,
+      "created_by": "gemini",
+      "created_at": "2024-01-11T20:00:00Z"
+    },
+    {
+      "id": "6",
+      "title": "Fresh Caesar Salad",
+      "ingredients": [
+        "romaine lettuce",
+        "caesar dressing",
+        "parmesan cheese",
+        "croutons",
+        "anchovies",
+        "lemon",
+        "black pepper"
+      ],
+      "instructions": "1. Wash and dry romaine lettuce thoroughly, tear into bite-sized pieces. 2. Prepare caesar dressing: combine mayonnaise, minced garlic, anchovy paste, lemon juice, parmesan, and black pepper. 3. Toss lettuce with dressing until evenly coated. 4. Add croutons and toss gently. 5. Top with shaved parmesan cheese. 6. Garnish with anchovy fillets if desired. 7. Serve immediately.",
+      "tags": ["Salad", "Healthy", "Quick", "Classic"],
+      "substitutions": {
+        "anchovies": ["capers", "omit"],
+        "croutons": ["nuts", "seeds"]
+      },
+      "pantry_mode": true,
+      "created_by": "gemini",
+      "created_at": "2024-01-10T11:30:00Z"
+    },
+    {
+      "id": "7",
+      "title": "Fresh Tomato Basil Pasta",
+      "ingredients": [
+        "pasta",
+        "tomato",
+        "basil",
+        "garlic",
+        "olive oil",
+        "parmesan cheese",
+        "salt",
+        "black pepper"
+      ],
+      "instructions": "1. Cook pasta in salted boiling water until al dente. 2. While pasta cooks, heat olive oil in a large pan. 3. Add minced garlic and cook for 1 minute until fragrant. 4. Add diced fresh tomatoes and cook for 3-4 minutes until softened. 5. Drain pasta, reserving pasta water. 6. Add pasta to pan with tomatoes. 7. Toss with fresh basil leaves, parmesan cheese, salt, and pepper. 8. Add pasta water if needed for sauce consistency. 9. Serve immediately with extra parmesan.",
+      "tags": ["Italian", "Vegetarian", "Quick", "Fresh"],
+      "substitutions": {
+        "pasta": ["zucchini noodles", "spaghetti squash"],
+        "parmesan cheese": ["nutritional yeast", "vegan parmesan"]
+      },
+      "pantry_mode": true,
+      "created_by": "gemini",
+      "created_at": "2024-01-09T16:45:00Z"
+    },
+    {
+      "id": "8",
+      "title": "Herb-Crusted Salmon",
+      "ingredients": [
+        "salmon fillets",
+        "fresh herbs",
+        "lemon",
+        "olive oil",
+        "garlic",
+        "breadcrumbs",
+        "salt",
+        "pepper",
+        "vegetables"
+      ],
+      "instructions": "1. Preheat oven to 400°F (200°C). 2. Mix breadcrumbs, chopped fresh herbs, minced garlic, olive oil, salt, and pepper. 3. Pat salmon fillets dry and season with salt and pepper. 4. Press herb mixture onto top of salmon fillets. 5. Place salmon on baking sheet lined with parchment paper. 6. Arrange vegetables around salmon. 7. Bake for 12-15 minutes until salmon is cooked through and crust is golden. 8. Serve with lemon wedges.",
+      "tags": ["Seafood", "Healthy", "Low Carb", "Elegant"],
+      "substitutions": {
+        "salmon": ["cod", "trout"],
+        "breadcrumbs": ["almond flour", "panko"]
+      },
+      "pantry_mode": false,
+      "created_by": "gemini",
+      "created_at": "2024-01-08T19:20:00Z"
+    },
+    {
+      "id": "9",
+      "title": "Rainbow Vegetable Stir Fry",
+      "ingredients": [
+        "bell pepper",
+        "carrot",
+        "onion",
+        "garlic",
+        "broccoli",
+        "soy sauce",
+        "ginger",
+        "sesame oil",
+        "rice"
+      ],
+      "instructions": "1. Heat sesame oil in a large wok or pan over high heat. 2. Add minced garlic and ginger, stir for 30 seconds. 3. Add sliced onions and carrots, stir-fry for 2 minutes. 4. Add bell peppers and broccoli, continue stir-frying for 3-4 minutes. 5. Add soy sauce and toss everything together. 6. Cook for 1 more minute until vegetables are crisp-tender. 7. Serve hot over steamed rice.",
+      "tags": ["Vegetarian", "Quick", "Healthy", "Asian"],
+      "substitutions": {
+        "soy sauce": ["tamari", "coconut aminos"],
+        "rice": ["quinoa", "noodles"]
+      },
+      "pantry_mode": true,
+      "created_by": "gemini",
+      "created_at": "2024-01-07T13:10:00Z"
+    },
+    {
+      "id": "10",
+      "title": "Coconut Chicken Curry",
+      "ingredients": [
+        "chicken",
+        "coconut milk",
+        "curry powder",
+        "onion",
+        "garlic",
+        "ginger",
+        "tomatoes",
+        "spices",
+        "rice"
+      ],
+      "instructions": "1. Heat oil in a large pot over medium heat. 2. Add diced onions and cook until translucent. 3. Add minced garlic and ginger, cook for 1 minute. 4. Add curry powder and cook for 30 seconds until fragrant. 5. Add chicken pieces and brown on all sides. 6. Add diced tomatoes and cook for 2 minutes. 7. Pour in coconut milk and bring to a simmer. 8. Cover and cook for 20-25 minutes until chicken is tender. 9. Season with salt and additional spices to taste. 10. Serve hot over rice.",
+      "tags": ["Indian", "Spicy", "Comfort Food", "Creamy"],
+      "substitutions": {
+        "chicken": ["chickpeas", "tofu"],
+        "coconut milk": ["heavy cream", "cashew cream"]
+      },
+      "pantry_mode": false,
+      "created_by": "gemini",
+      "created_at": "2024-01-06T17:30:00Z"
+    }
+  ]
+}
+
