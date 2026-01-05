@@ -4,6 +4,7 @@ import { Input } from "../ui/input";
 import { Badge } from "../ui/badge";
 import { Sparkles, ArrowDown } from "lucide-react";
 import GenerateButton from "./GenerateButton";
+import Navbar from "./Navbar";
 
 export const HeroSection = () => {
   const [ingredients, setIngredients] = useState("");
@@ -19,7 +20,7 @@ export const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/30 to-yellow-100/50"></div>
       <div className="absolute top-10 left-10 w-20 h-20 bg-orange-200 rounded-full blur-xl animate-pulse"></div>
       <div className="absolute bottom-10 right-10 w-32 h-32 bg-amber-200 rounded-full blur-xl animate-pulse delay-1000"></div>
-
+     <Navbar />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           {/* <Badge className="mb-4 bg-orange-100 text-orange-800 hover:bg-orange-200">
@@ -65,7 +66,6 @@ export const HeroSection = () => {
                 )}
                 Generate Recipe
               </Button>
-            
             </div>
 
             <div className="mt-4 flex flex-wrap gap-2">
