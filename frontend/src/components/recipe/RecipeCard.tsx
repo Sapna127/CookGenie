@@ -19,7 +19,7 @@ const DIFFICULTY_COLORS = {
 export default function RecipeCard({ recipe, onSelect }: RecipeCardProps) {
   return (
     <Card className="recipe-card w-[300px] flex-shrink-0">
-      <div className="relative h-48 overflow-hidden rounded-t-xl">
+      <div className="relative h-25 overflow-hidden">
         <img
           src={recipe.image}
           alt={recipe.title}

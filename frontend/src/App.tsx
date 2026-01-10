@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Recipies from "./pages/Recipies";
 import Pantry from "./pages/Pantry";
 import RecipeDetail from "./pages/RecipeDetail";
+import Profile from "./pages/Profile";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Route path="/recipes" element={<Recipies />} />
       <Route path="/recipes/:id" element={<RecipeDetail />} />
       <Route path="/pantry" element={<Pantry />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
   );
 };

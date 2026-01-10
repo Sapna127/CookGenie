@@ -37,7 +37,7 @@ const Recipes = () => {
     <div className="min-h-screen bg-background">
       <section className="relative h-64 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://pngtree.com/freepng/food-doodle-set-illustration-vector-collection_8801680.html"
           alt="Recipe Hero"
           className="w-full h-full object-cover"
         />

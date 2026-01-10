@@ -6,7 +6,7 @@ import type { BackendRecipe, DisplayRecipe, Difficulty } from "../types/recipe";
 function generateImageUrl(title: string): string {
   // Use Unsplash API with recipe title as search term
   const searchTerm = encodeURIComponent(title.toLowerCase().split(" ")[0]);
-  return `https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop&q=80`;
+  return `../../src/assets/food-doodle.png`;
 }
 
 /**
