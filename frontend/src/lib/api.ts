@@ -16,10 +16,11 @@ export interface Recipe {
 
 export interface User {
   id?: string;
+  clerk_id: string;
   username: string;
   email: string;
-  pantry: string[];
-  saved_recipes: string[];
+  pantry?: string[];
+  saved_recipes?: string[];
   created_at?: string;
 }
 

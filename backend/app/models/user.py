@@ -4,12 +4,14 @@ from datetime import datetime
 
 class UserBase(BaseModel):
     username: str
+    clerk_id: str
     email: EmailStr
     pantry: List[str] = []
     saved_recipes: List[str] = []
 
 class User(UserBase):
     id: Optional[str] = Field(None, alias="_id")
+   # id: str
     created_at: Optional[datetime] = None
 
     model_config = ConfigDict(
